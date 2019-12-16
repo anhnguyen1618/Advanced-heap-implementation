@@ -1,6 +1,5 @@
 package com.company;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class FibonacciHeap<A extends Comparable<A>> {
@@ -53,7 +52,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
 
         Node prevSmallest = smallest;
 
-        for (Node child: this.smallest.children) {
+        for (Node child: this.smallest.children.keySet()) {
             child.lostChildrenCount = 0;
         }
 
@@ -68,7 +67,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
     }
 
     private void extractAndMerge(Node removedNode) {
-        for (Node child: removedNode.children) {
+        for (Node child: removedNode.children.keySet()) {
             int degree = child.getDegree();
             roots.putIfAbsent(degree, new HashMap<>());
             roots.get(degree).put(child, child);
@@ -156,14 +155,9 @@ public class FibonacciHeap<A extends Comparable<A>> {
         }
 
         Node topLevelNode =this.add(newKey, nodeToUpdate.getDegree());
-        topLevelNode.setChildren(nodeToUpdate.children);
+        topLevelNode.setChildren(nodeToUpdate.children.keySet());
 
         detachFromParent(nodeToUpdate, false);
-
-        Node rem = this.find(oldKey);
-        if(rem != null) {
-            System.out.println(rem);
-        }
     }
 
     private Node find(A oldKey) {
@@ -184,7 +178,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
         if (currentNode == null) return null;
         if (currentNode.value.compareTo(key) == 0) return currentNode;
 
-        for (Node node: currentNode.children) {
+        for (Node node: currentNode.children.keySet()) {
             Node found = findHelper(node, key);
             if (found != null) {
                 return found;
@@ -203,10 +197,10 @@ public class FibonacciHeap<A extends Comparable<A>> {
 
         if (pullToTop) {
             Node topLevelNode =this.add(detachedNode.value);
-            topLevelNode.setChildren(detachedNode.children);
+            topLevelNode.setChildren(detachedNode.children.keySet());
         }
 
-        if (parent.parent != null) {
+        if (!parent.isRoot()) {
             parent.lostChildrenCount++;
         } else {
             this.roots.get(parent.getDegree()).remove(parent);
@@ -214,37 +208,29 @@ public class FibonacciHeap<A extends Comparable<A>> {
 
         parent.setChildren(this.getRemainingSiblings(detachedNode));
 
-
-
-
         if (parent.lostChildrenCount == 2) {
+            System.out.println("pull to top");
             detachFromParent(parent, true);
         }
 
     }
 
-    public ArrayList<Node> getRemainingSiblings(Node removedNode) {
-        boolean filtered = false;
-        ArrayList<Node> remainingChildren = new ArrayList<>();
-        for (Node node: removedNode.parent.children) {
-            //System.out.println(node.equals(removedNode)+ " "+ node.value +" " + removedNode.value);
-            if (filtered || !node.equals(removedNode)) {
-                remainingChildren.add(node);
-            } else {
-                filtered = true;
-            }
+    public Set<Node> getRemainingSiblings(Node removedNode) {
 
-        }
-        if (removedNode.parent.parent == null) {
-            this.roots.putIfAbsent(remainingChildren.size(), new HashMap<>());
-            Map<Node, Node> newDegreeGroup = this.roots.get(remainingChildren.size());
-            Node parent = removedNode.parent;
+        Node parent = removedNode.parent;
+        int oldDegree = parent.getDegree();
+        parent.children.remove(removedNode);
+
+
+        if (removedNode.parent.isRoot()) {
+            int newDegree = parent.getDegree();
+            this.roots.putIfAbsent(newDegree, new HashMap<>());
+            Map<Node, Node> newDegreeGroup = this.roots.get(newDegree);
             newDegreeGroup.put(parent, parent);
-            newDegreeGroup.put(parent, parent);
-            this.roots.get(remainingChildren.size() + 1).remove(parent);
+            this.roots.get(oldDegree).remove(parent);
         }
 
-        return remainingChildren;
+        return parent.children.keySet();
     }
 
     public FibonacciHeap<A> meld(FibonacciHeap<A> heap2) {
@@ -271,11 +257,15 @@ public class FibonacciHeap<A extends Comparable<A>> {
         A value;
         Node parent;
         int lostChildrenCount = 0;
-        List<Node> children = new ArrayList<>();
+        Map<Node, Node> children = new HashMap<>();
 
         public Node(A value, Node parent) {
             this.value = value;
             this.parent = parent;
+        }
+
+        public boolean isRoot() {
+            return this.parent == null;
         }
 
         public boolean lessThan(Node other) {
@@ -289,20 +279,20 @@ public class FibonacciHeap<A extends Comparable<A>> {
         public Node merge(Node other) {
 
             if (this.lessThan(other)) {
-                this.children.add(other);
+                this.children.put(other, other);
                 other.parent = this;
                 return this;
             }
 
-            other.children.add(this);
+            other.children.put(this, this);
             this.parent = other;
             return other;
         }
 
-        public void setChildren(List<Node> children) {
-            this.children = children;
+        public void setChildren(Set<Node> children) {
             for (Node child: children) {
                 child.parent = this;
+                this.children.put(child, child);
             }
         }
 
@@ -317,7 +307,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
         @Override
         public String toString() {
             StringBuilder result = new StringBuilder(value + "(");
-            for (Node child: this.children) {
+            for (Node child: this.children.keySet()) {
                 result.append(child.toString()).append(", ");
             }
             result.append(")");

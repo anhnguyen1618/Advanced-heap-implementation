@@ -1,6 +1,8 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
 
 public class Main {
 
@@ -39,9 +41,38 @@ public class Main {
         //FibonacciHeap.Node x = ;
         //fibHeap.decreaseKey(3, 1);
 
+        testDecreaseKey();
 
 
         //System.out.println("hello world" + x.key);
 	// write your code here
+    }
+
+    public static void testDecreaseKey() {
+        Random random = new Random();
+        FibonacciHeap<Integer> fibHeap = new FibonacciHeap<>();
+        int[] array = random.ints(2000, 20,2000).toArray();
+        for (int e: array) {
+            fibHeap.add(e);
+        }
+
+        fibHeap.add(fibHeap.extractMin());
+
+        for (int i = 0; i < 1000; i++) {
+            Random rand = new Random();
+            int index = rand.nextInt(50);
+            int oldValue = array[index];
+            array[index] -= rand.nextInt(100000);
+            fibHeap.decreaseKey(oldValue, array[index]);
+        }
+
+        Arrays.sort(array);
+
+        int count = 0;
+        while (!fibHeap.isEmpty()) {
+            int curValue = fibHeap.extractMin();
+            count++;
+        }
+
     }
 }

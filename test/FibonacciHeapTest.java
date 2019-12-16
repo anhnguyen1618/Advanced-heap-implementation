@@ -63,16 +63,18 @@ public class FibonacciHeapTest {
     public void testDecreaseKey() {
         Random random = new Random();
 
-        int[] array = random.ints(50, 20,100).toArray();
+        int[] array = random.ints(50000, 20,100000).toArray();
         for (int e: array) {
             this.fibHeap.add(e);
         }
 
-        for (int i = 0; i < 20; i++) {
+        this.fibHeap.add(this.fibHeap.extractMin());
+
+        for (int i = 0; i < 30000; i++) {
             Random rand = new Random();
             int index = rand.nextInt(50);
             int oldValue = array[index];
-            array[index] -= rand.nextInt(20);
+            array[index] -= rand.nextInt(100000);
             this.fibHeap.decreaseKey(oldValue, array[index]);
         }
 
@@ -98,7 +100,7 @@ public class FibonacciHeapTest {
         int[] array = random.ints(20000, 10,20000).toArray();
 
         for (int i = 0 ; i < array.length; i++) {
-            if (i % 2 == 0) {
+            if (i % 3 == 0) {
                 heap1.add(array[i]);
             } else {
                 heap2.add(array[i]);
