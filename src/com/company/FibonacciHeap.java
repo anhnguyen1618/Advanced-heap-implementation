@@ -59,22 +59,48 @@ public class FibonacciHeap<A extends Comparable<A>> {
         this.extractAndMerge(smallest);
 
 
-        if (this.isEmpty()) {
-            this.smallest = null;
+        return prevSmallest.getValue();
+    }
+
+    private int findDegreeForRoot(Node node) {
+        for (int degree: roots.keySet()) {
+
+            Map<Node, Node> hihi = roots.get(degree);
+            for (Node hehe : hihi.keySet()) {
+                if (hehe.equals(node)) {
+                    return degree;
+                }
+            }
         }
 
-        return prevSmallest.getValue();
+        return -1;
     }
 
     private void extractAndMerge(Node removedNode) {
         for (Node child: removedNode.children.keySet()) {
             int degree = child.getDegree();
+            child.parent = null;
             roots.putIfAbsent(degree, new HashMap<>());
             roots.get(degree).put(child, child);
         }
 
-        // we know for sure that the removed node (smallest node) is in the roots
-        roots.get(removedNode.getDegree()).remove(removedNode);
+        if (!removedNode.isRoot()) {
+
+            System.out.println("fdsaf");
+        }
+
+        int oldDegree = removedNode.getDegree();
+        if (roots.get(removedNode.getDegree()).get(removedNode) == null) {
+
+            int newDegree = this.findDegreeForRoot(removedNode);
+            roots.get(newDegree).remove(removedNode);
+        } else {
+            // we know for sure that the removed node (smallest node) is in the roots
+            roots.get(removedNode.getDegree()).remove(removedNode);
+        }
+
+
+
 
         while(merge()) {}
 
@@ -150,7 +176,10 @@ public class FibonacciHeap<A extends Comparable<A>> {
         //System.out.println(newKey.compareTo(parent.value) + " " + newKey + parent.value);
         if (parent == null || newKey.compareTo(parent.value) >= 0) {
             nodeToUpdate.value = newKey;
-            smallest = newKey.compareTo(smallest.value) < 0 ? nodeToUpdate : smallest;
+
+            if (parent == null) {
+                smallest = newKey.compareTo(smallest.value) < 0 ? nodeToUpdate : smallest;
+            }
             return;
         }
 
@@ -158,34 +187,53 @@ public class FibonacciHeap<A extends Comparable<A>> {
         topLevelNode.setChildren(nodeToUpdate.children.keySet());
 
         detachFromParent(nodeToUpdate, false);
+
+        if (this.find(newKey) == null) {
+            throw new Error("fuck this shit");
+        }
     }
 
     private Node find(A oldKey) {
+        LinkedList<Node> queue = new LinkedList<>();
         for (Map<Node, Node> mappings: this.roots.values()) {
 
             for (Node node: mappings.values()) {
-                Node found = findHelper(node, oldKey);
-                if (found != null) {
-                    return found;
-                }
+                queue.push(node);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            Node node = queue.pop();
+            if (node.value.compareTo(oldKey) == 0) return node;
+            for (Node child: node.children.keySet()) {
+                queue.push(child);
             }
         }
 
         return null;
     }
 
-    private Node findHelper(Node currentNode, A key) {
-        if (currentNode == null) return null;
-        if (currentNode.value.compareTo(key) == 0) return currentNode;
+    public List<Node> findCount(A oldKey) {
+        LinkedList<Node> queue = new LinkedList<>();
+        List<Node> list = new ArrayList<>();
+        for (Map<Node, Node> mappings: this.roots.values()) {
 
-        for (Node node: currentNode.children.keySet()) {
-            Node found = findHelper(node, key);
-            if (found != null) {
-                return found;
+            for (Node node: mappings.values()) {
+                queue.push(node);
             }
         }
 
-        return null;
+        while (!queue.isEmpty()) {
+            Node node = queue.pop();
+            if (node.value.compareTo(oldKey) == 0) {
+                list.add(node);
+            }
+            for (Node child: node.children.keySet()) {
+                queue.push(child);
+            }
+        }
+
+        return list;
     }
 
     public void detachFromParent(Node detachedNode, boolean pullToTop) {
@@ -203,13 +251,22 @@ public class FibonacciHeap<A extends Comparable<A>> {
         if (!parent.isRoot()) {
             parent.lostChildrenCount++;
         } else {
+            if (this.roots.get(parent.getDegree()) == null) {
+                System.out.println("jeee");
+            }
+
+            int oldDegree = parent.getDegree();
+            if (this.roots.get(oldDegree).get(parent) == null) {
+                int newDegree = this.findDegreeForRoot(parent);
+                this.roots.get(newDegree).remove(parent);
+            }
             this.roots.get(parent.getDegree()).remove(parent);
         }
 
         parent.setChildren(this.getRemainingSiblings(detachedNode));
 
         if (parent.lostChildrenCount == 2) {
-            System.out.println("pull to top");
+//            System.out.println("pull to top");
             detachFromParent(parent, true);
         }
 
