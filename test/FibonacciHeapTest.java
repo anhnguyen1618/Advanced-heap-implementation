@@ -21,13 +21,13 @@ public class FibonacciHeapTest {
 
         int[] array = random.ints(100000, 10,100000).toArray();
         for (int e: array) {
-            this.fibHeap.add(e, e);
+            this.fibHeap.add(e);
         }
 
         int min = Integer.MIN_VALUE;
         int count = 0;
         while (!this.fibHeap.isEmpty()) {
-            int curValue = this.fibHeap.extractMin().getKey();
+            int curValue = this.fibHeap.extractMin().getValue();
             Assert.assertTrue(curValue >= min);
             min = curValue;
             count++;
@@ -42,7 +42,7 @@ public class FibonacciHeapTest {
 
         int[] array = random.ints(50, 20,100).toArray();
         for (int e: array) {
-            this.fibHeap.add(e, e);
+            this.fibHeap.add(e);
         }
 
         for (int i = 0; i < 20; i++) {
@@ -57,7 +57,7 @@ public class FibonacciHeapTest {
 
         int count = 0;
         while (!this.fibHeap.isEmpty()) {
-            int curValue = this.fibHeap.extractMin().getKey();
+            int curValue = this.fibHeap.extractMin().getValue();
             Assert.assertEquals(curValue, array[count]);
             count++;
         }

@@ -3,26 +3,23 @@ package com.company;
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class FibonacciHeap<A> {
+public class FibonacciHeap<A extends Comparable<A>> {
 
     public static final int INIT_DEGREE = 0;
 
     private Map<Integer, Map<Node, Node>> roots = new HashMap<>();
 
     private Node smallest;
-    private Comparator<A> comparator;
 
-    public FibonacciHeap(Comparator<A> comparator) {
-        this.comparator = comparator;
-    }
 
-    public Node add(int key, A value, int degree) {
+    private Node add(A value, int degree) {
+
         roots.putIfAbsent(degree, new HashMap<>());
-        Node current = new Node(key, value, null);
+        Node current = new Node(value, null);
         roots.get(degree).put(current, current);
 
         if (smallest != null) {
-            smallest = current.getKey() < smallest.getKey() ? current : smallest;
+            smallest = current.lessThan(smallest) ? current : smallest;
         } else {
             smallest = current;
         }
@@ -31,8 +28,8 @@ public class FibonacciHeap<A> {
         return current;
     }
 
-    public Node add(int key, A value) {
-        return this.add(key, value, INIT_DEGREE);
+    public Node add(A value) {
+        return this.add(value, INIT_DEGREE);
     }
 
     public boolean isEmpty() {
@@ -91,7 +88,7 @@ public class FibonacciHeap<A> {
             for (Node node: nodes) {
                 if (minNode == null) {
                     minNode = node;
-                } else if (minNode.getKey() > node.getKey()) {
+                } else if (node.lessThan(minNode)) {
                     minNode = node;
                 }
             }
@@ -129,7 +126,7 @@ public class FibonacciHeap<A> {
     }
 
 
-    public void decreaseKey(int oldKey, int newKey) {
+    public void decreaseKey(A oldKey, A newKey) {
         Node nodeToUpdate = this.find(oldKey);
         if (nodeToUpdate == null) {
             throw new Error("key not found");
@@ -137,20 +134,25 @@ public class FibonacciHeap<A> {
 
 
         Node parent = nodeToUpdate.parent;
-
-        if (parent == null || newKey >= parent.getKey()) {
-            nodeToUpdate.key = newKey;
-            smallest = newKey < smallest.getKey() ? nodeToUpdate : smallest;
+        //System.out.println(newKey.compareTo(parent.value) + " " + newKey + parent.value);
+        if (parent == null || newKey.compareTo(parent.value) >= 0) {
+            nodeToUpdate.value = newKey;
+            smallest = newKey.compareTo(smallest.value) < 0 ? nodeToUpdate : smallest;
             return;
         }
 
-        Node topLevelNode =this.add(newKey, nodeToUpdate.value, nodeToUpdate.getDegree());
+        Node topLevelNode =this.add(newKey, nodeToUpdate.getDegree());
         topLevelNode.setChildren(nodeToUpdate.children);
 
         detachFromParent(nodeToUpdate, false);
+
+        Node rem = this.find(oldKey);
+        if(rem != null) {
+            System.out.println(rem);
+        }
     }
 
-    private Node find(int oldKey) {
+    private Node find(A oldKey) {
         for (Map<Node, Node> mappings: this.roots.values()) {
 
             for (Node node: mappings.values()) {
@@ -164,9 +166,9 @@ public class FibonacciHeap<A> {
         return null;
     }
 
-    private Node findHelper(Node currentNode, int key) {
+    private Node findHelper(Node currentNode, A key) {
         if (currentNode == null) return null;
-        if (currentNode.key == key) return currentNode;
+        if (currentNode.value.compareTo(key) == 0) return currentNode;
 
         for (Node node: currentNode.children) {
             Node found = findHelper(node, key);
@@ -186,14 +188,14 @@ public class FibonacciHeap<A> {
         }
 
         if (pullToTop) {
-            Node topLevelNode =this.add(detachedNode.key, detachedNode.value);
+            Node topLevelNode =this.add(detachedNode.value);
             topLevelNode.setChildren(detachedNode.children);
         }
 
         if (parent.parent != null) {
             parent.lostChildrenCount++;
         } else {
-            this.roots.get(parent.children.size()).remove(parent);
+            this.roots.get(parent.getDegree()).remove(parent);
         }
 
         parent.setChildren(this.getRemainingSiblings(detachedNode));
@@ -211,7 +213,8 @@ public class FibonacciHeap<A> {
         boolean filtered = false;
         ArrayList<Node> remainingChildren = new ArrayList<>();
         for (Node node: removedNode.parent.children) {
-            if (filtered || node.key != removedNode.key) {
+            //System.out.println(node.equals(removedNode)+ " "+ node.value +" " + removedNode.value);
+            if (filtered || !node.equals(removedNode)) {
                 remainingChildren.add(node);
             } else {
                 filtered = true;
@@ -230,21 +233,27 @@ public class FibonacciHeap<A> {
     }
 
     public class Node {
-        int key;
         A value;
         Node parent;
         int lostChildrenCount = 0;
         List<Node> children = new ArrayList<>();
 
-        public Node(int key, A value, Node parent) {
-            this.key = key;
+        public Node(A value, Node parent) {
             this.value = value;
             this.parent = parent;
         }
 
+        public boolean lessThan(Node other) {
+            return this.value.compareTo(other.value) < 0;
+        }
+
+        public boolean equals(Node other) {
+            return this.value.compareTo(other.value) == 0;
+        }
+
         public Node merge(Node other) {
 
-            if (this.key < other.key) {
+            if (this.lessThan(other)) {
                 this.children.add(other);
                 other.parent = this;
                 return this;
@@ -262,8 +271,8 @@ public class FibonacciHeap<A> {
             }
         }
 
-        public int getKey() {
-            return this.key;
+        public A getValue() {
+            return this.value;
         }
 
         public int getDegree() {
@@ -272,7 +281,7 @@ public class FibonacciHeap<A> {
 
         @Override
         public String toString() {
-            StringBuilder result = new StringBuilder(key + "(");
+            StringBuilder result = new StringBuilder(value + "(");
             for (Node child: this.children) {
                 result.append(child.toString()).append(", ");
             }
