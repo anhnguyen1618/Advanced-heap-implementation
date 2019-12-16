@@ -36,7 +36,17 @@ public class FibonacciHeap<A extends Comparable<A>> {
         return smallest == null;
     }
 
-    public Node extractMin() {
+    public  Map<Integer, Map<Node, Node>> getRoots() {
+        return this.roots;
+    }
+
+    public A peekMin() {
+        if (this.smallest == null) return null;
+
+        return this.smallest.getValue();
+    }
+
+    public A extractMin() {
         if (this.isEmpty()) {
             return null;
         }
@@ -54,7 +64,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
             this.smallest = null;
         }
 
-        return prevSmallest;
+        return prevSmallest.getValue();
     }
 
     private void extractAndMerge(Node removedNode) {
@@ -127,6 +137,10 @@ public class FibonacciHeap<A extends Comparable<A>> {
 
 
     public void decreaseKey(A oldKey, A newKey) {
+        if (oldKey.compareTo(newKey) < 0) {
+            throw new Error("New key { "+ newKey + " } must be smaller than old key { "+ oldKey+ " }");
+        }
+
         Node nodeToUpdate = this.find(oldKey);
         if (nodeToUpdate == null) {
             throw new Error("key not found");
@@ -224,12 +238,33 @@ public class FibonacciHeap<A extends Comparable<A>> {
         if (removedNode.parent.parent == null) {
             this.roots.putIfAbsent(remainingChildren.size(), new HashMap<>());
             Map<Node, Node> newDegreeGroup = this.roots.get(remainingChildren.size());
-            newDegreeGroup.put(removedNode.parent, removedNode.parent);
-            newDegreeGroup.put(removedNode.parent, removedNode.parent);
-            this.roots.get(remainingChildren.size() + 1).remove(removedNode.parent);
+            Node parent = removedNode.parent;
+            newDegreeGroup.put(parent, parent);
+            newDegreeGroup.put(parent, parent);
+            this.roots.get(remainingChildren.size() + 1).remove(parent);
         }
 
         return remainingChildren;
+    }
+
+    public FibonacciHeap<A> meld(FibonacciHeap<A> heap2) {
+        Map<Integer, Map<Node, Node>> otherRoot = heap2.getRoots();
+
+        for (int degree: otherRoot.keySet()) {
+            this.roots.putIfAbsent(degree, new HashMap<>());
+            Map<Node, Node> degreeGroup = this.roots.get(degree);
+            for (Node entry: otherRoot.get(degree).keySet()) {
+                degreeGroup.put(entry, entry);
+            }
+        }
+
+        if (this.smallest == null) {
+            this.smallest = heap2.smallest;
+        } else if (heap2.smallest != null) {
+            this.smallest = this.smallest.lessThan(heap2.smallest) ? this.smallest : heap2.smallest;
+        }
+
+        return this;
     }
 
     public class Node {

@@ -11,7 +11,7 @@ public class Main {
         fibHeap.add(6);
         fibHeap.add(1);
 
-        System.out.println(fibHeap.extractMin().value);
+        System.out.println(fibHeap.extractMin());
 
 
         fibHeap.add(8);
@@ -23,7 +23,7 @@ public class Main {
 
         fibHeap.add(5);
 
-        System.out.println(fibHeap.extractMin().value);
+        System.out.println(fibHeap.extractMin());
         fibHeap.decreaseKey(5, 2);
 
         fibHeap.decreaseKey(10, 7);
@@ -34,7 +34,7 @@ public class Main {
         fibHeap.add(9);
 //
         while (!fibHeap.isEmpty()) {
-            System.out.println("result " + fibHeap.extractMin().value);
+            System.out.println("result " + fibHeap.extractMin());
         }
         //FibonacciHeap.Node x = ;
         //fibHeap.decreaseKey(3, 1);

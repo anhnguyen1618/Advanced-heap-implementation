@@ -27,7 +27,30 @@ public class FibonacciHeapTest {
         int min = Integer.MIN_VALUE;
         int count = 0;
         while (!this.fibHeap.isEmpty()) {
-            int curValue = this.fibHeap.extractMin().getValue();
+            int curValue = this.fibHeap.extractMin();
+            Assert.assertTrue(curValue >= min);
+            min = curValue;
+            count++;
+        }
+
+        Assert.assertEquals(array.length, count);
+    }
+
+    @Test
+    public void peekMinWithoutExtracting() {
+        Random random = new Random();
+
+        int[] array = random.ints(20, 10,50).toArray();
+        for (int e: array) {
+            this.fibHeap.add(e);
+        }
+
+        int min = fibHeap.peekMin();
+        assertEquals(min, (int) fibHeap.peekMin());
+
+        int count = 0;
+        while (!this.fibHeap.isEmpty()) {
+            int curValue = this.fibHeap.extractMin();
             Assert.assertTrue(curValue >= min);
             min = curValue;
             count++;
@@ -57,7 +80,37 @@ public class FibonacciHeapTest {
 
         int count = 0;
         while (!this.fibHeap.isEmpty()) {
-            int curValue = this.fibHeap.extractMin().getValue();
+            int curValue = this.fibHeap.extractMin();
+            Assert.assertEquals(curValue, array[count]);
+            count++;
+        }
+
+        Assert.assertEquals(array.length, count);
+    }
+
+    @Test
+    public void merge() {
+        Random random = new Random();
+
+        FibonacciHeap<Integer> heap1 = new FibonacciHeap<>();
+        FibonacciHeap<Integer> heap2 = new FibonacciHeap<>();
+
+        int[] array = random.ints(20000, 10,20000).toArray();
+
+        for (int i = 0 ; i < array.length; i++) {
+            if (i % 2 == 0) {
+                heap1.add(array[i]);
+            } else {
+                heap2.add(array[i]);
+            }
+        }
+
+        Arrays.sort(array);
+
+        FibonacciHeap<Integer> mergedHeap = heap1.meld(heap2);
+        int count = 0;
+        while (!mergedHeap.isEmpty()) {
+            int curValue = mergedHeap.extractMin();
             Assert.assertEquals(curValue, array[count]);
             count++;
         }
