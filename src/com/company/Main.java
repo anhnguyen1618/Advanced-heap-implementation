@@ -55,7 +55,6 @@ public class Main {
         }
 
         fibHeap.add(fibHeap.extractMin());
-        System.out.println("original array " + Arrays.toString(array));
 
         for (int i = 0; i < 300; i++) {
             Random rand = new Random();
