@@ -74,7 +74,6 @@ public class Main {
             int curValue = fibHeap.extractMin();
             //System.out.println(curValue + " " + array[count]);
             if (curValue != array[count]) {
-                System.out.println(fibHeap.findCount(curValue).size());
                 System.out.println("this is bulsshit " + curValue + " " + array[count]);
             }
             count++;
