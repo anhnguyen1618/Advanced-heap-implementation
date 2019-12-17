@@ -4,7 +4,7 @@ import java.util.*;
 
 public class FibonacciHeap<A extends Comparable<A>> {
 
-    public static final int INIT_DEGREE = 0;
+    private static final int INIT_DEGREE = 0;
 
     private Map<Integer, Map<Node, Node>> roots = new HashMap<>();
 
@@ -58,20 +58,6 @@ public class FibonacciHeap<A extends Comparable<A>> {
 
 
         return prevSmallest.getValue();
-    }
-
-    private int findDegreeForRoot(Node node) {
-        for (int degree: roots.keySet()) {
-
-            Map<Node, Node> hihi = roots.get(degree);
-            for (Node hehe : hihi.keySet()) {
-                if (hehe.equals(node)) {
-                    return degree;
-                }
-            }
-        }
-
-        return -1;
     }
 
     private void extractAndMerge(Node removedNode) {
@@ -135,14 +121,6 @@ public class FibonacciHeap<A extends Comparable<A>> {
                 Node newRoot = first.merge(second);
                 this.roots.putIfAbsent(degree + 1, new HashMap<>());
                 this.roots.get(degree + 1).put(newRoot, newRoot);
-
-                if (this.roots.get(degree).get(first) == null) {
-                    throw new Error("degree not found");
-                }
-
-                if (this.roots.get(degree).get(second) == null) {
-                    throw new Error("degree not found");
-                }
 
                 this.roots.get(degree).remove(first);
                 this.roots.get(degree).remove(second);
