@@ -49,16 +49,16 @@ public class Main {
     public static void testDecreaseKey() {
         Random random = new Random();
         FibonacciHeap<Integer> fibHeap = new FibonacciHeap<>();
-        int[] array = random.ints(2000, 20,2000).toArray();
+        int[] array = random.ints(20000, 20,2000).toArray();
         for (int e: array) {
             fibHeap.add(e);
         }
 
         fibHeap.add(fibHeap.extractMin());
 
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < 3000; i++) {
             Random rand = new Random();
-            int index = rand.nextInt(2000);
+            int index = rand.nextInt(20000);
             int oldValue = array[index];
             array[index] -= rand.nextInt(100000);
             fibHeap.decreaseKey(oldValue, array[index]);
