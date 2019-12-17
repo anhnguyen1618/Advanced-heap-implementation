@@ -47,6 +47,8 @@ public class FibonacciHeapTest {
 
         int min = fibHeap.peekMin();
         assertEquals(min, (int) fibHeap.peekMin());
+        assertEquals(min, (int) fibHeap.peekMin());
+        assertEquals(min, (int) fibHeap.peekMin());
 
         int count = 0;
         while (!this.fibHeap.isEmpty()) {
@@ -109,7 +111,7 @@ public class FibonacciHeapTest {
 
         Arrays.sort(array);
 
-        FibonacciHeap<Integer> mergedHeap = heap1.meld(heap2);
+        FibonacciHeap<Integer> mergedHeap = heap1.merge(heap2);
         int count = 0;
         while (!mergedHeap.isEmpty()) {
             int curValue = mergedHeap.extractMin();

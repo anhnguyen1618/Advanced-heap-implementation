@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdaecbe3-175e-41ae-9254-365e0f204def" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Index.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAT-project/com/company/FibonacciHeap$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PAT-project/com/company/FibonacciHeap$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PAT-project/com/company/FibonacciHeap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PAT-project/com/company/FibonacciHeap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/FibonacciHeapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FibonacciHeapTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,7 +21,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="377">
               <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
             </state>
           </provider>
@@ -27,17 +30,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/HashMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40078">
+            <state relative-caret-position="680">
               <caret line="1444" selection-start-line="1444" selection-end-line="1444" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="114" column="48" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="48" />
+            <state relative-caret-position="-1305">
+              <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,23 +48,43 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Index.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#478#479#0" expanded="true" />
+                <element signature="e#510#511#0" expanded="true" />
+                <element signature="e#948#949#0" expanded="true" />
+                <element signature="e#986#987#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="337" selection-start-line="337" selection-end-line="337" />
+            <state relative-caret-position="-4483">
+              <caret line="89" column="20" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="20" />
               <folding>
                 <element signature="e#919#920#0" expanded="true" />
                 <element signature="e#945#946#0" expanded="true" />
-                <element signature="e#1637#1638#0" expanded="true" />
-                <element signature="e#1708#1709#0" expanded="true" />
-                <element signature="e#1797#1798#0" expanded="true" />
-                <element signature="e#8971#8972#0" expanded="true" />
-                <element signature="e#9021#9022#0" expanded="true" />
-                <element signature="e#9068#9069#0" expanded="true" />
-                <element signature="e#9136#9137#0" expanded="true" />
-                <element signature="e#9181#9182#0" expanded="true" />
-                <element signature="e#9250#9251#0" expanded="true" />
+                <element signature="e#825#826#0" expanded="true" />
+                <element signature="e#896#897#0" expanded="true" />
+                <element signature="e#985#986#0" expanded="true" />
+                <element signature="e#8239#8240#0" expanded="true" />
+                <element signature="e#8289#8290#0" expanded="true" />
+                <element signature="e#8336#8337#0" expanded="true" />
+                <element signature="e#8404#8405#0" expanded="true" />
+                <element signature="e#8449#8450#0" expanded="true" />
+                <element signature="e#8518#8519#0" expanded="true" />
+                <element signature="e#9081#9082#0" expanded="true" />
+                <element signature="e#9122#9123#0" expanded="true" />
+                <element signature="e#9156#9157#0" expanded="true" />
+                <element signature="e#9207#9208#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,7 +132,6 @@
       <find>-213</find>
       <find>-20</find>
       <find>hihi</find>
-      <find>merge</find>
       <find>setChild</find>
       <find>getRemainingSiblings</find>
       <find>setChi</find>
@@ -125,6 +147,7 @@
       <find>find(</find>
       <find>this.index</find>
       <find>removeIndex</find>
+      <find>merge</find>
       <find>meld</find>
     </findStrings>
   </component>
@@ -134,8 +157,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/company/Node.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Index.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Node.java" />
         <option value="$PROJECT_DIR$/test/FibonacciHeapTest.java" />
         <option value="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" />
       </list>
@@ -191,7 +215,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576582384807" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576585457940" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -284,45 +308,45 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FibonacciHeapTest_merge - 2019.12.17 at 13h 18m 34s.xml">
-      <configuration name="FibonacciHeapTest.merge" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 19m 35s.xml">
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 55m 09s.xml">
       <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 19m 46s.xml">
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 55m 25s.xml">
       <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 20m 04s.xml">
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 55m 34s.xml">
       <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 24m 19s.xml">
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 55m 46s.xml">
       <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 24m 28s.xml">
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 57m 21s.xml">
       <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FibonacciHeapTest_merge - 2019.12.17 at 13h 24m 35s.xml">
-      <configuration name="FibonacciHeapTest.merge" configurationId="JUnit" />
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 13h 57m 33s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FibonacciHeapTest_merge - 2019.12.17 at 13h 24m 37s.xml">
-      <configuration name="FibonacciHeapTest.merge" configurationId="JUnit" />
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 14h 14m 43s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FibonacciHeapTest_merge - 2019.12.17 at 13h 25m 00s.xml">
-      <configuration name="FibonacciHeapTest.merge" configurationId="JUnit" />
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 14h 15m 23s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FibonacciHeapTest_merge - 2019.12.17 at 13h 25m 12s.xml">
-      <configuration name="FibonacciHeapTest.merge" configurationId="JUnit" />
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 14h 20m 51s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FibonacciHeapTest - 2019.12.17 at 14h 24m 28s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73481000" />
+    <option name="totallyTimeSpent" value="76930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25987193" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25987193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -330,9 +354,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24173748" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32577905" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295562" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.38243628" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32577905" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -367,21 +391,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>151</line>
+          <line>123</line>
           <properties />
           <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>220</line>
-          <properties />
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -390,18 +402,10 @@
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/requests/FilterRequest.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Node.java" />
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40078">
-          <caret line="1444" selection-start-line="1444" selection-end-line="1444" />
         </state>
       </provider>
     </entry>
@@ -419,39 +423,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+        <state relative-caret-position="145">
+          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="114" column="48" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="48" />
+        <state relative-caret-position="680">
+          <caret line="1444" selection-start-line="1444" selection-end-line="1444" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#591#592#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="337" selection-start-line="337" selection-end-line="337" />
+        <state relative-caret-position="-4483">
+          <caret line="89" column="20" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="20" />
           <folding>
             <element signature="e#919#920#0" expanded="true" />
             <element signature="e#945#946#0" expanded="true" />
-            <element signature="e#1637#1638#0" expanded="true" />
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1797#1798#0" expanded="true" />
-            <element signature="e#8971#8972#0" expanded="true" />
-            <element signature="e#9021#9022#0" expanded="true" />
-            <element signature="e#9068#9069#0" expanded="true" />
-            <element signature="e#9136#9137#0" expanded="true" />
-            <element signature="e#9181#9182#0" expanded="true" />
-            <element signature="e#9250#9251#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#896#897#0" expanded="true" />
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#8239#8240#0" expanded="true" />
+            <element signature="e#8289#8290#0" expanded="true" />
+            <element signature="e#8336#8337#0" expanded="true" />
+            <element signature="e#8404#8405#0" expanded="true" />
+            <element signature="e#8449#8450#0" expanded="true" />
+            <element signature="e#8518#8519#0" expanded="true" />
+            <element signature="e#9081#9082#0" expanded="true" />
+            <element signature="e#9122#9123#0" expanded="true" />
+            <element signature="e#9156#9157#0" expanded="true" />
+            <element signature="e#9207#9208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1305">
+          <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
