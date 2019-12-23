@@ -8,7 +8,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
 
     private Map<Integer, Map<Node, Node>> roots = new HashMap<>();
 
-    private Index index = new Index<A>();
+    private Index index = new Index<A, Node>();
 
     private Node smallest;
 
@@ -16,7 +16,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
         return this.index;
     }
 
-    private Node add(A value, int degree) {
+    private Node insert(A value, int degree) {
         roots.putIfAbsent(degree, new HashMap<>());
         Node node = new Node(value, null);
         roots.get(degree).put(node, node);
@@ -32,8 +32,8 @@ public class FibonacciHeap<A extends Comparable<A>> {
         return node;
     }
 
-    public void add(A value) {
-        this.add(value, INIT_DEGREE);
+    public void insert(A value) {
+        this.insert(value, INIT_DEGREE);
     }
 
     public boolean isEmpty() {
@@ -163,7 +163,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
             return;
         }
 
-        Node topLevelNode =this.add(newKey, nodeToUpdate.getDegree());
+        Node topLevelNode =this.insert(newKey, nodeToUpdate.getDegree());
         nodeToUpdate.deleted = true;
         topLevelNode.setChildren(nodeToUpdate.children.keySet());
         if (!parent.isRoot()) parent.lostChildrenCount++;
@@ -178,12 +178,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
     }
 
     private Node find(A oldKey) {
-        Map<Node, Node> inv = this.index.get(oldKey);
-        if (inv == null) {
-            throw new Error("key not found");
-        }
-
-        Node found = inv.values().iterator().next();
+        Node found = (Node) this.index.get(oldKey);
 
         if (found == null) {
             throw new Error("key not found");
@@ -205,7 +200,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
 
         Node parent = detachedNode.parent;
 
-        Node topLevelNode =this.add(detachedNode.value, detachedNode.getDegree());
+        Node topLevelNode =this.insert(detachedNode.value, detachedNode.getDegree());
         detachedNode.deleted = true;
         topLevelNode.setChildren(detachedNode.children.keySet());
 
@@ -267,7 +262,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
 
 
 
-    public class Node {
+    public class Node implements AbstractNode<A> {
         public boolean deleted;
         A value;
         Node parent;

@@ -7,21 +7,21 @@ public class Main {
     public static void main(String[] args) {
 //        FibonacciHeap<Integer> fibHeap = new FibonacciHeap<>();
 //
-//        fibHeap.add(4);
-//        fibHeap.add(6);
-//        fibHeap.add(1);
+//        fibHeap.insert(4);
+//        fibHeap.insert(6);
+//        fibHeap.insert(1);
 //
 //        System.out.println(fibHeap.extractMin());
 //
 //
-//        fibHeap.add(8);
-//        fibHeap.add(9);
-//        fibHeap.add(99);
-//        fibHeap.add(10);
-//        fibHeap.add(3);
-//        fibHeap.add(1);
+//        fibHeap.insert(8);
+//        fibHeap.insert(9);
+//        fibHeap.insert(99);
+//        fibHeap.insert(10);
+//        fibHeap.insert(3);
+//        fibHeap.insert(1);
 //
-//        fibHeap.add(5);
+//        fibHeap.insert(5);
 //
 //        System.out.println(fibHeap.extractMin());
 //        fibHeap.decreaseKey(5, 2);
@@ -31,7 +31,7 @@ public class Main {
 //
 //        fibHeap.decreaseKey(4, 1);
 //        fibHeap.decreaseKey(8, 4);
-//        fibHeap.add(9);
+//        fibHeap.insert(9);
 ////
 //        while (!fibHeap.isEmpty()) {
 //            System.out.println("result " + fibHeap.extractMin());
@@ -39,11 +39,30 @@ public class Main {
         //FibonacciHeap.Node x = ;
         //fibHeap.decreaseKey(3, 1);
 
-        testDecreaseKey();
-
+        //testDecreaseKey();
+        testHollowHeap();
 
         //System.out.println("hello world" + x.key);
 	// write your code here
+    }
+
+    public static void testHollowHeap() {
+        HollowHeap<Integer> hollowHeap = new HollowHeap<>();
+        int[] arr = {14, 11, 5, 9, 0, 8, 10, 3, 6, 12, 13, 4};
+        for (int i : arr) {
+            hollowHeap.insert(i);
+        }
+
+        hollowHeap.extractMin();
+        hollowHeap.decreaseKey(5, 1);
+        hollowHeap.decreaseKey(3, 2);
+        hollowHeap.decreaseKey(8, 7);
+
+        while (!hollowHeap.isEmpty()) {
+            System.out.println(hollowHeap.extractMin());
+        }
+
+
     }
 
     public static void testDecreaseKey() {
@@ -51,10 +70,10 @@ public class Main {
         FibonacciHeap<Integer> fibHeap = new FibonacciHeap<>();
         int[] array = random.ints(20000, 20,2000).toArray();
         for (int e: array) {
-            fibHeap.add(e);
+            fibHeap.insert(e);
         }
 
-        fibHeap.add(fibHeap.extractMin());
+        fibHeap.insert(fibHeap.extractMin());
 
         for (int i = 0; i < 3000; i++) {
             Random rand = new Random();

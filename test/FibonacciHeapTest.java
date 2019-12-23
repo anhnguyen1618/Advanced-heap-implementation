@@ -21,7 +21,7 @@ public class FibonacciHeapTest {
 
         int[] array = random.ints(100000, 10,100000).toArray();
         for (int e: array) {
-            this.fibHeap.add(e);
+            this.fibHeap.insert(e);
         }
 
         int min = Integer.MIN_VALUE;
@@ -33,7 +33,7 @@ public class FibonacciHeapTest {
             count++;
         }
 
-        Assert.assertEquals(array.length, count);
+        assertEquals(array.length, count);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class FibonacciHeapTest {
 
         int[] array = random.ints(20, 10,50).toArray();
         for (int e: array) {
-            this.fibHeap.add(e);
+            this.fibHeap.insert(e);
         }
 
         int min = fibHeap.peekMin();
@@ -67,10 +67,10 @@ public class FibonacciHeapTest {
 
         int[] array = random.ints(100000, 20,100000).toArray();
         for (int e: array) {
-            this.fibHeap.add(e);
+            this.fibHeap.insert(e);
         }
 
-        this.fibHeap.add(this.fibHeap.extractMin());
+        this.fibHeap.insert(this.fibHeap.extractMin());
 
         for (int i = 0; i < 90000; i++) {
             Random rand = new Random();
@@ -103,9 +103,9 @@ public class FibonacciHeapTest {
 
         for (int i = 0 ; i < array.length; i++) {
             if (i % 3 == 0) {
-                heap1.add(array[i]);
+                heap1.insert(array[i]);
             } else {
-                heap2.add(array[i]);
+                heap2.insert(array[i]);
             }
         }
 
