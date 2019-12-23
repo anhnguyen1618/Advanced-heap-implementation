@@ -6,15 +6,12 @@ import java.util.Map;
 public class Index<A, V extends AbstractNode<A>> {
     private Map<A, Map<V, V>> index = new HashMap<>();
 
-    public void addIndex(A key, V node) {
-        //System.out.println("add index "+ key);
-        this.index.putIfAbsent(key, new HashMap<>());
-        if (key.equals(50)) {
-            Map<V, V> hihi = this.index.get(node.getValue());
-            int a = 1;
-        }
+    public void addIndex(V node) {
 
-        this.index.get(node.getValue()).put(node, node);
+        A key = node.getValue();
+        this.index.putIfAbsent(key, new HashMap<>());
+
+        this.index.get(key).put(node, node);
     }
 
     public Map<A, Map<V, V>> getIndex() {
@@ -22,9 +19,6 @@ public class Index<A, V extends AbstractNode<A>> {
     }
 
     public void removeIndex(V node) {
-
-
-        //System.out.println("remove index "+ node.getValue());
         Map<V, V> inv = this.index.get(node.getValue());
 
         if (inv.get(node) == null) {

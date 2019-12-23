@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdaecbe3-175e-41ae-9254-365e0f204def" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/AbstractNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/HollowHeap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/HollowHeapTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAT-project/com/company/FibonacciHeap$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PAT-project/com/company/FibonacciHeap$Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAT-project/com/company/FibonacciHeap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PAT-project/com/company/FibonacciHeap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAT-project/com/company/Index.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PAT-project/com/company/Index.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PAT-project/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PAT-project/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/PAT-project/FibonacciHeapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/PAT-project/FibonacciHeapTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/HollowHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/HollowHeap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Index.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/FibonacciHeapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FibonacciHeapTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/HollowHeapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/HollowHeapTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,12 +32,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/HollowHeap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
+            <state relative-caret-position="232">
+              <caret line="151" column="88" selection-start-line="151" selection-start-column="88" selection-end-line="151" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6450#6451#0" expanded="true" />
-                <element signature="e#6538#6539#0" expanded="true" />
+                <element signature="e#5653#5654#0" expanded="true" />
+                <element signature="e#5741#5742#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,26 +46,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1139">
-              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            <state relative-caret-position="261">
+              <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#310#311#0" expanded="true" />
-                <element signature="e#362#363#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/HollowHeapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1508">
-              <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+            <state relative-caret-position="412">
+              <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#304#305#0" expanded="true" />
-                <element signature="e#356#357#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Index.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+            <state relative-caret-position="580">
+              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#553#554#0" expanded="true" />
@@ -102,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="179" column="33" selection-start-line="179" selection-start-column="33" selection-end-line="179" selection-end-column="33" />
+            <state relative-caret-position="4321">
+              <caret line="157" column="32" selection-start-line="157" selection-start-column="32" selection-end-line="157" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -160,8 +148,8 @@
       <find>firstChild =</find>
       <find>root</find>
       <find>root.key</find>
-      <find>58</find>
       <find>find</find>
+      <find>58</find>
     </findStrings>
     <replaceStrings>
       <replace>V</replace>
@@ -176,11 +164,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/Node.java" />
-        <option value="$PROJECT_DIR$/test/FibonacciHeapTest.java" />
-        <option value="$PROJECT_DIR$/test/HollowHeapTest.java" />
+        <option value="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" />
         <option value="$PROJECT_DIR$/src/com/company/Index.java" />
         <option value="$PROJECT_DIR$/src/com/company/HollowHeap.java" />
-        <option value="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" />
+        <option value="$PROJECT_DIR$/test/HollowHeapTest.java" />
+        <option value="$PROJECT_DIR$/test/FibonacciHeapTest.java" />
       </list>
     </option>
   </component>
@@ -234,7 +222,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577110217251" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577113029069" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -248,13 +236,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FibonacciHeapTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+  <component name="RunManager" selected="JUnit.All in PAT-project">
+    <configuration name="All in PAT-project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PAT-project" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -299,11 +285,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FibonacciHeapTest" />
+        <item itemvalue="JUnit.All in PAT-project" />
         <item itemvalue="JUnit.HollowHeapTest" />
+        <item itemvalue="JUnit.FibonacciHeapTest" />
         <item itemvalue="JUnit.HollowHeapTest.testDecreaseKey" />
         <item itemvalue="JUnit.HollowHeapTest.test" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -324,50 +310,50 @@
       <workItem from="1576565994559" duration="5132000" />
       <workItem from="1576919441693" duration="12596000" />
       <workItem from="1577008735727" duration="17191000" />
-      <workItem from="1577087006776" duration="21887000" />
+      <workItem from="1577087006776" duration="24662000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HollowHeapTest_testDecreaseKey - 2019.12.23 at 15h 44m 17s.xml">
-      <configuration name="HollowHeapTest.testDecreaseKey" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 15h 52m 57s.xml">
+    <history-entry file="HollowHeapTest - 2019.12.23 at 16h 49m 52s.xml">
       <configuration name="HollowHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 15h 54m 11s.xml">
+    <history-entry file="HollowHeapTest - 2019.12.23 at 16h 49m 56s.xml">
       <configuration name="HollowHeapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 15h 54m 27s.xml">
-      <configuration name="HollowHeapTest" configurationId="JUnit" />
+    <history-entry file="All_in_PAT-project - 2019.12.23 at 16h 50m 11s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 15h 55m 25s.xml">
-      <configuration name="HollowHeapTest" configurationId="JUnit" />
+    <history-entry file="All_in_PAT-project - 2019.12.23 at 16h 50m 36s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 15h 56m 20s.xml">
-      <configuration name="HollowHeapTest" configurationId="JUnit" />
+    <history-entry file="All_in_PAT-project - 2019.12.23 at 16h 51m 06s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 15h 57m 19s.xml">
-      <configuration name="HollowHeapTest" configurationId="JUnit" />
+    <history-entry file="All_in_PAT-project - 2019.12.23 at 16h 51m 55s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 16h 02m 25s.xml">
-      <configuration name="HollowHeapTest" configurationId="JUnit" />
+    <history-entry file="All_in_PAT-project - 2019.12.23 at 16h 52m 13s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 16h 02m 35s.xml">
-      <configuration name="HollowHeapTest" configurationId="JUnit" />
+    <history-entry file="All_in_PAT-project - 2019.12.23 at 16h 52m 36s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HollowHeapTest - 2019.12.23 at 16h 04m 31s.xml">
-      <configuration name="HollowHeapTest" configurationId="JUnit" />
+    <history-entry file="All_in_PAT-project - 2019.12.23 at 16h 52m 54s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_PAT-project - 2019.12.23 at 16h 53m 11s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129805000" />
+    <option name="totallyTimeSpent" value="132580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984326" visible="true" weight="0.26894343" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4984326" visible="true" weight="0.26894343" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -376,7 +362,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.5015674" side_tool="true" weight="0.26574174" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32945737" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3265504" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3265504" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5978682" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -472,22 +458,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1139">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#362#363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+        <state relative-caret-position="580">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#553#554#0" expanded="true" />
@@ -496,34 +470,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/HollowHeapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1508">
-          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/HollowHeap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
+        <state relative-caret-position="232">
+          <caret line="151" column="88" selection-start-line="151" selection-start-column="88" selection-end-line="151" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6450#6451#0" expanded="true" />
-            <element signature="e#6538#6539#0" expanded="true" />
+            <element signature="e#5653#5654#0" expanded="true" />
+            <element signature="e#5741#5742#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4321">
+          <caret line="157" column="32" selection-start-line="157" selection-start-column="32" selection-end-line="157" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
-          <caret line="179" column="33" selection-start-line="179" selection-start-column="33" selection-end-line="179" selection-end-column="33" />
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/HollowHeapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

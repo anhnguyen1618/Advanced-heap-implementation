@@ -4,7 +4,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
 
-public class HollowHeap<A extends Comparable> {
+public class HollowHeap<A extends Comparable<A>> {
 
     HollowHeapNode root;
 
@@ -28,7 +28,7 @@ public class HollowHeap<A extends Comparable> {
     public void insert(A item) {
         HollowHeapNode newNode = new HollowHeapNode(item);
 
-        this.index.addIndex(item, newNode);
+        this.index.addIndex(newNode);
 
         if (this.root == null) {
             this.root = newNode;
@@ -37,7 +37,6 @@ public class HollowHeap<A extends Comparable> {
 
         if (this.root.lessThan(newNode)) {
             newNode.nextSibling = this.root.firstChild;
-            this.root.firstChild = newNode;
             this.root.firstChild = newNode;
 
         } else {
@@ -85,17 +84,13 @@ public class HollowHeap<A extends Comparable> {
 
         if (oldNode == this.root) {
             this.root.key = newKey;
-            this.index.addIndex(newKey, this.root);
+            this.index.addIndex(this.root);
             return;
         }
 
-
-
-
-
         oldNode.isHollow = true;
         HollowHeapNode newNode = new HollowHeapNode(newKey);
-        this.index.addIndex(newKey, newNode);
+        this.index.addIndex(newNode);
 
         HollowHeapNode winner = this.linkWithRootAndReturnWinner(newNode);
 
@@ -118,29 +113,10 @@ public class HollowHeap<A extends Comparable> {
         }
 
         return found;
-
-//        Stack<HollowHeapNode> stack = new Stack<>();
-//
-//        if (this.root != null) stack.push(this.root);
-//
-//        while (!stack.isEmpty()) {
-//            HollowHeapNode current = stack.pop();
-//
-//            if (current != null) {
-//                if (current.key == oldKey && !current.isHollow) return  current;
-//                stack.push(current.firstChild);
-//                stack.push(current.nextSibling);
-//            }
-//
-//        }
-//
-//        return null;
     }
 
     public A extractMin() {
         if (this.root == null) return null;
-
-        if (this.root.isHollow) throw new Error("root is hollow" + this.root);
 
         A min = this.root.key;
         this.index.removeIndex(this.root);
@@ -155,19 +131,10 @@ public class HollowHeap<A extends Comparable> {
             HollowHeapNode hollowedNode = hollowedRoots.pop();
             HollowHeapNode curChild = hollowedNode.firstChild;
 
-            if (hollowedNode != this.root) {
-
-            }
-
 
             while (curChild != null) {
 
-                if (curChild.key.equals(95)) {
-                    int a= 1;
-                }
-
                 HollowHeapNode next = curChild.nextSibling;
-
 
                 if (curChild.isHollow && curChild.secondParent == null) {
                     hollowedRoots.push(curChild);
@@ -183,16 +150,12 @@ public class HollowHeap<A extends Comparable> {
                     currentNode.nextSibling = null;
                     while (fullRoots.get(currentNode.rank) != null) {
                         HollowHeapNode sameRankedNode = fullRoots.get(currentNode.rank);
-
-
                         HollowHeapNode winner = this.link(sameRankedNode, currentNode);
 
                         fullRoots.remove(sameRankedNode.rank);
 
-
                         winner.rank++;
                         currentNode = winner;
-
 
                     }
 

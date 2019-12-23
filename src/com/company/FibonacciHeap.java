@@ -27,7 +27,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
             smallest = node;
         }
 
-        index.addIndex(value, node);
+        index.addIndex(node);
 
         return node;
     }
@@ -155,7 +155,7 @@ public class FibonacciHeap<A extends Comparable<A>> {
         if (parent == null || newKey.compareTo(parent.value) >= 0) {
             this.index.removeIndex(nodeToUpdate);
             nodeToUpdate.value = newKey;
-            this.index.addIndex(newKey, nodeToUpdate);
+            this.index.addIndex(nodeToUpdate);
 
             if (parent == null) {
                 smallest = newKey.compareTo(smallest.value) < 0 ? nodeToUpdate : smallest;
