@@ -3,25 +3,35 @@ package com.company;
 import java.util.*;
 
 public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
-
-    private static final int INIT_DEGREE = 0;
-
     private Map<Integer, Map<Node, Node>> roots = new HashMap<>();
 
     private Index index = new Index<A, Node>();
 
     private Node smallest;
 
+    /**
+     * Check if heap is empty
+     * @return
+     */
     public boolean isEmpty() {
         return smallest == null;
     }
 
+    /**
+     * Insert value to heap
+     * @param value value to be inserted
+     */
     public void insert(A value) {
         Node node = new Node(value, null);
         this.index.addIndex(node);
         this.pullToRoot(node);
     }
 
+    /**
+     * Find min value and remove min value from heap
+     * Then merge all mergable roots
+     * @return value of the smallest element
+     */
     public A extractMin() {
         if (this.isEmpty()) {
             return null;
@@ -29,6 +39,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
 
         Node prevSmallest = smallest;
 
+        // Reset lostChildrenCount of all children of the smallest element since they are now put to the root
         for (Node child: this.smallest.children.keySet()) {
             child.lostChildrenCount = 0;
         }
@@ -40,12 +51,21 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         return prevSmallest.getValue();
     }
 
+    /**
+     * Get value of min without removing it from heap
+     * @return min value
+     */
     public A peekMin() {
         if (this.smallest == null) return null;
 
         return this.smallest.getValue();
     }
 
+    /**
+     * Decrease key of a node in heap
+     * @param oldKey oldkey of the node
+     * @param newKey newkey of the node
+     */
     public void decreaseKey(A oldKey, A newKey) {
         if (oldKey.compareTo(newKey) < 0) {
             throw new Error("New key { "+ newKey + " } must be smaller than old key { "+ oldKey+ " }");
@@ -81,6 +101,11 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
 
     }
 
+    /**
+     * Merge 2 FibonacciHeap together
+     * @param other another heap
+     * @return merged heap
+     */
     @Override
     public Heap meld(Heap other) {
         if (other instanceof FibonacciHeap) {
@@ -90,6 +115,10 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         throw new Error("Can't combine 2 different types of heap");
     }
 
+    /**
+     * Delete a node with specified key
+     * @param key key of the node to be deleted
+     */
     public void delete(A key) {
         Node foundNode = this.find(key);
         if (foundNode == null) {
@@ -101,6 +130,10 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         this.extractMin();
     }
 
+    /**
+     * Pull the node to roots, cut all connection to old parents, reset lostChildrenCount
+     * @param node node to be pulled
+     */
     private void pullToRoot(Node node) {
         int degree = node.getDegree();
         this.removeConnectionWithParent(node);
@@ -112,11 +145,10 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         smallest = smallest != null && smallest.lessThan(node) ? smallest : node;
     }
 
-    public  Map<Integer, Map<Node, Node>> getRoots() {
-        return this.roots;
-    }
-
-
+    /**
+     * Extract children of the node, put them to the roots and merge all mergable nodes
+     * @param removedNode root node to be removed
+     */
     private void extractAndMerge(Node removedNode) {
         for (Node child: removedNode.children.keySet()) {
             int degree = child.getDegree();
@@ -127,11 +159,15 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
 
         roots.get(removedNode.getDegree()).remove(removedNode);
 
+        // merge all roots with the same rank until all root nodes has different degree rank
         while(compress()) {}
 
         this.updateSmallest();
     }
 
+    /**
+     * Iterate through roots and select the smallest node
+     */
     private void updateSmallest() {
         Node minNode = null;
         Set<Integer> keys = this.roots.keySet();
@@ -153,6 +189,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
 
         }
 
+        // remove all rank entries that are empty
         for (int key: emptyKeys) {
             this.roots.remove(key);
         }
@@ -160,6 +197,10 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         this.smallest = minNode;
     }
 
+    /**
+     * Merge all root nodes with the same degree in the hashmap
+     * @return status if the merge process should continue
+     */
     private boolean compress() {
         for (int degree: this.roots.keySet()) {
             Collection<Node> nodes = this.roots.get(degree).values();
@@ -169,13 +210,16 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
                 Node first = iter.next();
                 Node second = iter.next();
 
-                if (first.getDegree() != second.getDegree() || degree != first.getDegree()) {
+                if (first.getDegree() != second.getDegree()) {
                     throw new Error("Degree does not match"+ first.getDegree() + " " + second.getDegree());
                 }
 
                 Node newRoot = first.merge(second);
-                this.roots.putIfAbsent(degree + 1, new HashMap<>());
-                this.roots.get(degree + 1).put(newRoot, newRoot);
+
+                int newDegreeAfterMerging = degree +1;
+                // increase rank of the merged node
+                this.roots.putIfAbsent(newDegreeAfterMerging, new HashMap<>());
+                this.roots.get(newDegreeAfterMerging).put(newRoot, newRoot);
 
                 this.roots.get(degree).remove(first);
                 this.roots.get(degree).remove(second);
@@ -187,9 +231,11 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         return false;
     }
 
-
-
-
+    /**
+     * Find node with specified key from index
+     * @param oldKey key to be searched
+     * @return Node with the searched key
+     */
     private Node find(A oldKey) {
         Node found = (Node) this.index.get(oldKey);
 
@@ -200,6 +246,10 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         return found;
     }
 
+    /**
+     * Cascade delete if node is marked with detachedNode.lostChildrenCount == 2
+     * @param detachedNode node to be checked if they should be pull to top
+     */
     private void detachFromParent(Node detachedNode) {
 
         if (detachedNode.isRoot()) {
@@ -220,6 +270,11 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         }
     }
 
+    /**
+     * Remove parent link to child and vice versa.
+     * If parent is root node, update the degree rank of root node in the hashmap
+     * @param removedNode node to remove connection with its parent
+     */
     private void removeConnectionWithParent(Node removedNode) {
         Node parent = removedNode.parent;
 
@@ -246,8 +301,13 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
 
     }
 
+    /**
+     * Merge 2 heaps together including merging there indexes
+     * @param heap2 another heap
+     * @return merged heap
+     */
     private FibonacciHeap<A> merge(FibonacciHeap<A> heap2) {
-        Map<Integer, Map<Node, Node>> otherRoot = heap2.getRoots();
+        Map<Integer, Map<Node, Node>> otherRoot = heap2.roots;
 
         for (int degree: otherRoot.keySet()) {
             this.roots.putIfAbsent(degree, new HashMap<>());
