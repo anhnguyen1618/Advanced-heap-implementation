@@ -40,30 +40,16 @@ public class Main {
         //fibHeap.decreaseKey(3, 1);
 
         //testDecreaseKey();
-        testHollowHeap();
+        //testHollowHeap();
+
 
         //System.out.println("hello world" + x.key);
 	// write your code here
+
+        HollowHeapSmallTest.testHollowHeap();
+        HollowHeapSmallTest.testHollowHeap2();
     }
 
-    public static void testHollowHeap() {
-        HollowHeap<Integer> hollowHeap = new HollowHeap<>();
-        int[] arr = {14, 11, 5, 9, 0, 8, 10, 3, 6, 12, 13, 4};
-        for (int i : arr) {
-            hollowHeap.insert(i);
-        }
-
-        hollowHeap.extractMin();
-        hollowHeap.decreaseKey(5, 1);
-        hollowHeap.decreaseKey(3, 2);
-        hollowHeap.decreaseKey(8, 7);
-
-        while (!hollowHeap.isEmpty()) {
-            System.out.println(hollowHeap.extractMin());
-        }
-
-
-    }
 
     public static void testDecreaseKey() {
         Random random = new Random();

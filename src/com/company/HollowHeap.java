@@ -98,10 +98,8 @@ public class HollowHeap<A extends Comparable<A>> {
             return;
         }
 
-
         oldNode.secondParent = newNode;
         newNode.prependChild(oldNode);
-
         newNode.rank = Math.max(0, oldNode.rank - 2);
     }
 
@@ -109,10 +107,27 @@ public class HollowHeap<A extends Comparable<A>> {
         HollowHeapNode found = (HollowHeapNode) this.index.get(oldKey);
 
         if (found == null) {
-            throw new Error("key not found");
+            throw new Error("key " + oldKey + " not found");
         }
 
         return found;
+    }
+
+    public void delete(A key) {
+        HollowHeapNode node = this.find(key);
+        if (node == null) {
+            System.out.println("key " + key + "is not found");
+            return;
+        }
+
+        if (this.root == node) {
+            extractMin();
+            return;
+        }
+
+        node.isHollow = true;
+        this.index.removeIndex(node);
+
     }
 
     public A extractMin() {
