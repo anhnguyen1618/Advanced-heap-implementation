@@ -4,22 +4,11 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
 
-public class HollowHeap<A extends Comparable<A>> {
+public class HollowHeap<A extends Comparable<A>> implements Heap<A> {
 
     HollowHeapNode root;
 
     private Index index = new Index<A, HollowHeapNode>();
-
-    public HollowHeap merge(HollowHeap other) {
-        if (other.root == null) return this;
-
-        if (this.root == null) return other;
-
-        this.index.mergeIndex(other.index);
-
-        this.linkWithRootAndReturnWinner(other.root);
-        return this;
-    }
 
     public boolean isEmpty() {
         return this.root == null;
@@ -44,90 +33,6 @@ public class HollowHeap<A extends Comparable<A>> {
             this.root = newNode;
         }
         //System.out.println("run insert");
-    }
-
-    public A peekMin() {
-        if (this.root == null) return null;
-
-        return this.root.key;
-    }
-
-    private HollowHeapNode link(HollowHeapNode node1, HollowHeapNode node2) {
-        if (node1.lessThan(node2)) {
-            node1.prependChild(node2);
-            return node1;
-        }
-
-        node2.prependChild(node1);
-        return node2;
-    }
-
-    private HollowHeapNode linkWithRootAndReturnWinner(HollowHeapNode newNode) {
-        this.root = link(this.root, newNode);
-
-        return this.root;
-    }
-
-    public void decreaseKey(A oldKey, A newKey) {
-
-        if (oldKey.compareTo(newKey) < 0) {
-            throw new Error("Old key has to be bigger than new key");
-        }
-
-        HollowHeapNode oldNode = this.find(oldKey);
-
-        if (oldNode == null) {
-            throw new Error("Node with key "+ oldKey + "is not found");
-        }
-
-        this.index.removeIndex(oldNode);
-
-        if (oldNode == this.root) {
-            this.root.key = newKey;
-            this.index.addIndex(this.root);
-            return;
-        }
-
-        oldNode.isHollow = true;
-        HollowHeapNode newNode = new HollowHeapNode(newKey);
-        this.index.addIndex(newNode);
-
-        HollowHeapNode winner = this.linkWithRootAndReturnWinner(newNode);
-
-        if (winner == newNode) {
-            return;
-        }
-
-        oldNode.secondParent = newNode;
-        newNode.prependChild(oldNode);
-        newNode.rank = Math.max(0, oldNode.rank - 2);
-    }
-
-    private HollowHeapNode find(A oldKey) {
-        HollowHeapNode found = (HollowHeapNode) this.index.get(oldKey);
-
-        if (found == null) {
-            throw new Error("key " + oldKey + " not found");
-        }
-
-        return found;
-    }
-
-    public void delete(A key) {
-        HollowHeapNode node = this.find(key);
-        if (node == null) {
-            System.out.println("key " + key + "is not found");
-            return;
-        }
-
-        if (this.root == node) {
-            extractMin();
-            return;
-        }
-
-        node.isHollow = true;
-        this.index.removeIndex(node);
-
     }
 
     public A extractMin() {
@@ -198,6 +103,111 @@ public class HollowHeap<A extends Comparable<A>> {
         this.root = winner;
 
         return min;
+    }
+
+    public A peekMin() {
+        if (this.root == null) return null;
+
+        return this.root.key;
+    }
+
+    public void decreaseKey(A oldKey, A newKey) {
+
+        if (oldKey.compareTo(newKey) < 0) {
+            throw new Error("Old key has to be bigger than new key");
+        }
+
+        HollowHeapNode oldNode = this.find(oldKey);
+
+        if (oldNode == null) {
+            throw new Error("Node with key "+ oldKey + "is not found");
+        }
+
+        this.index.removeIndex(oldNode);
+
+        if (oldNode == this.root) {
+            this.root.key = newKey;
+            this.index.addIndex(this.root);
+            return;
+        }
+
+        oldNode.isHollow = true;
+        HollowHeapNode newNode = new HollowHeapNode(newKey);
+        this.index.addIndex(newNode);
+
+        HollowHeapNode winner = this.linkWithRootAndReturnWinner(newNode);
+
+        if (winner == newNode) {
+            return;
+        }
+
+        oldNode.secondParent = newNode;
+        newNode.prependChild(oldNode);
+        newNode.rank = Math.max(0, oldNode.rank - 2);
+    }
+
+    @Override
+    public Heap<A> meld(Heap other) {
+        if (other instanceof HollowHeap) {
+            return this.merge((HollowHeap) other);
+        }
+
+        throw new Error("Can't combine 2 different types of heaps");
+    }
+
+    public void delete(A key) {
+        HollowHeapNode node = this.find(key);
+        if (node == null) {
+            System.out.println("key " + key + "is not found");
+            return;
+        }
+
+        if (this.root == node) {
+            extractMin();
+            return;
+        }
+
+        node.isHollow = true;
+        this.index.removeIndex(node);
+
+    }
+
+    private HollowHeap<A> merge(HollowHeap<A> other) {
+        if (other.root == null) return this;
+
+        if (this.root == null) return other;
+
+        this.index.mergeIndex(other.index);
+
+        this.linkWithRootAndReturnWinner(other.root);
+        return this;
+    }
+
+
+    private HollowHeapNode link(HollowHeapNode node1, HollowHeapNode node2) {
+        if (node1.lessThan(node2)) {
+            node1.prependChild(node2);
+            return node1;
+        }
+
+        node2.prependChild(node1);
+        return node2;
+    }
+
+    private HollowHeapNode linkWithRootAndReturnWinner(HollowHeapNode newNode) {
+        this.root = link(this.root, newNode);
+
+        return this.root;
+    }
+
+    private HollowHeapNode find(A oldKey) {
+        HollowHeapNode found = (HollowHeapNode) this.index.get(oldKey);
+
+        if (found == null) {
+            throw new Error("key " + oldKey + " not found");
+        }
+
+        return found;
     }
 
     private class HollowHeapNode implements AbstractNode<A> {

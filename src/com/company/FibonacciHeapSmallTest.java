@@ -2,17 +2,17 @@ package com.company;
 
 import java.util.Arrays;
 
-public class HollowHeapSmallTest {
-    public static void testHollowHeap() {
-        System.out.println("========== TEST HOLLOW HEAP EXTRACT MIN AND DECREASING KEYS IN EXAMPLE ==========");
+public class FibonacciHeapSmallTest {
+    public static void testFibHeap() {
+        System.out.println("========== TEST FIBONACCI HEAP EXTRACT MIN AND DECREASING KEYS IN EXAMPLE ==========");
 
-        HollowHeap<Integer> hollowHeap = new HollowHeap<>();
+        FibonacciHeap<Integer> fibHeap = new FibonacciHeap<>();
         int[] input = {14, 11, 5, 9, 0, 8, 10, 3, 6, 12, 13, 4};
 
         System.out.println("INPUT: " + Arrays.toString(input));
 
         for (int i : input) {
-            hollowHeap.insert(i);
+            fibHeap.insert(i);
         }
 
         // sorted input
@@ -20,7 +20,7 @@ public class HollowHeapSmallTest {
         System.out.println("EXPECTED OUTPUT WIHOUT DECEASING KEY (SORTED INPUT): " + Arrays.toString(expectedOutputWithoutDecreasingKey));
 
 
-        int min = hollowHeap.extractMin();
+        int min = fibHeap.extractMin();
         System.out.println("EXTRACT MIN VALUE: " + min);
         if (min != expectedOutputWithoutDecreasingKey[0]) {
             throw new Error("Min value should be "+ expectedOutputWithoutDecreasingKey[0] + " but it is " + min);
@@ -33,21 +33,21 @@ public class HollowHeapSmallTest {
 
         // Test decreasing keys
         System.out.println("DECREASING KEY: " + 5 + " -> " + 1);
-        hollowHeap.decreaseKey(5, 1);
+        fibHeap.decreaseKey(5, 1);
 
         System.out.println("DECREASING KEY: " + 3 + " -> " + 2);
-        hollowHeap.decreaseKey(3, 2);
+        fibHeap.decreaseKey(3, 2);
 
         System.out.println("DECREASING KEY: " + 8 + " -> " + 7);
-        hollowHeap.decreaseKey(8, 7);
+        fibHeap.decreaseKey(8, 7);
 
 
         int[] expectedOutputAfterDecreasingKey = {1, 2, 4, 6, 7, 9, 10, 11, 12, 13, 14};
         int[] actualResults = new int[expectedOutputAfterDecreasingKey.length];
 
         int count = 0;
-        while (!hollowHeap.isEmpty()) {
-            int curMin = hollowHeap.extractMin();
+        while (!fibHeap.isEmpty()) {
+            int curMin = fibHeap.extractMin();
             actualResults[count] = curMin;
 
             int expectedValue = expectedOutputAfterDecreasingKey[count];
@@ -70,16 +70,16 @@ public class HollowHeapSmallTest {
         System.out.println("");
     }
 
-    public static void testHollowHeap2() {
-        System.out.println("========== TEST HOLLOW HEAP EXTRACT MIN, DELETING KEYS, AND DECREASING KEYS IN EXAMPLE 2 ==========");
+    public static void testFibHeap2() {
+        System.out.println("========== TEST FIBONACCI HEAP EXTRACT MIN, DECREASING KEYS, DELETE KEYS IN EXAMPLE 2 ==========");
 
-        HollowHeap<Integer> hollowHeap = new HollowHeap<>();
+        FibonacciHeap<Integer> fibHeap = new FibonacciHeap<>();
         int[] input = {0, 8, 1, 11, 4, 15, 3, 16, 13, 6, 7, 9, 17, 20, 10, 18, 12};
 
         System.out.println("INPUT: " + Arrays.toString(input));
 
         for (int i : input) {
-            hollowHeap.insert(i);
+            fibHeap.insert(i);
         }
 
         // sorted input
@@ -87,7 +87,7 @@ public class HollowHeapSmallTest {
         System.out.println("EXPECTED OUTPUT WIHOUT DECEASING KEY (SORTED INPUT): " + Arrays.toString(expectedOutputWithoutDecreasingKey));
 
 
-        int min = hollowHeap.extractMin();
+        int min = fibHeap.extractMin();
         System.out.println("EXTRACT MIN VALUE: " + min);
         if (min != expectedOutputWithoutDecreasingKey[0]) {
             throw new Error("Min value should be "+ expectedOutputWithoutDecreasingKey[0] + " but it is " + min);
@@ -100,20 +100,20 @@ public class HollowHeapSmallTest {
 
         // Test decreasing keys
         System.out.println("DECREASING KEY: " + 6 + " -> " + 2);
-        hollowHeap.decreaseKey(6, 2);
+        fibHeap.decreaseKey(6, 2);
 
         System.out.println("DELETING KEY: " + 4);
-        hollowHeap.delete(4);
+        fibHeap.delete(4);
 
         System.out.println("DELETING KEY: " + 12);
-        hollowHeap.delete(12);
+        fibHeap.delete(12);
 
         int[] expectedOutputAfterDecreasingKey = {1, 2, 3, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20};
         int[] actualResults = new int[expectedOutputAfterDecreasingKey.length];
 
         int count = 0;
-        while (!hollowHeap.isEmpty()) {
-            int curMin = hollowHeap.extractMin();
+        while (!fibHeap.isEmpty()) {
+            int curMin = fibHeap.extractMin();
             actualResults[count] = curMin;
 
             int expectedValue = expectedOutputAfterDecreasingKey[count];

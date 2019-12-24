@@ -48,6 +48,9 @@ public class Main {
 
         HollowHeapSmallTest.testHollowHeap();
         HollowHeapSmallTest.testHollowHeap2();
+
+        FibonacciHeapSmallTest.testFibHeap();
+        FibonacciHeapSmallTest.testFibHeap2();
     }
 
 

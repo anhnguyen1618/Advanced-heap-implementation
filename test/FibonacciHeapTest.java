@@ -115,7 +115,7 @@ public class FibonacciHeapTest {
 
         Arrays.sort(array);
 
-        FibonacciHeap<Integer> mergedHeap = heap1.merge(heap2);
+        FibonacciHeap<Integer> mergedHeap = (FibonacciHeap<Integer>) heap1.meld(heap2);
         int count = 0;
         while (!mergedHeap.isEmpty()) {
             int curValue = mergedHeap.extractMin();

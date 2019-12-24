@@ -117,7 +117,7 @@ public class HollowHeapTest {
 
         Arrays.sort(array);
 
-        HollowHeap<Integer> mergedHeap = heap1.merge(heap2);
+        HollowHeap<Integer> mergedHeap = (HollowHeap<Integer>) heap1.meld(heap2);
         int count = 0;
         while (!mergedHeap.isEmpty()) {
             int curValue = mergedHeap.extractMin();
