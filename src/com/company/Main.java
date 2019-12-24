@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
+        System.out.println("RUNNING SMALL INPUT TESTS AND DISPLAY INPUT/OUTPUTS AND ACTIONS");
+
         HollowHeapSmallTest.testHollowHeap();
         HollowHeapSmallTest.testHollowHeap2();
 
@@ -14,7 +16,7 @@ public class Main {
         FibonacciHeapSmallTest.testFibHeap2();
 
         // Large test
-        System.out.println("Running test with large amount of random numbers .....");
+        System.out.println("RUNNING TESTS WITH LARGE RANDOMLY GENERATED INPUT .....");
 
         FibbonacciHeapLargeRandomTest.testAddAndExtract100000();
         FibbonacciHeapLargeRandomTest.peekMinWithoutExtracting();
@@ -25,6 +27,8 @@ public class Main {
         HollowHeapLargeRandomTest.peekMinWithoutExtracting();
         HollowHeapLargeRandomTest.testDecreaseKey();
         HollowHeapLargeRandomTest.merge();
+
+        System.out.println("DONE!");
 
     }
 
