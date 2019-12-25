@@ -5,7 +5,7 @@ import java.util.*;
 public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
     private Map<Integer, Map<Node, Node>> roots = new HashMap<>();
 
-    private Index index = new Index<A, Node>();
+    private Index<A, Node> index = new Index<>();
 
     private Node smallest;
 
@@ -44,7 +44,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
             child.lostChildrenCount = 0;
         }
 
-        this.extractAndMerge(smallest);
+        this.extractChildrenAndMergeRoots(smallest);
 
         this.index.removeIndex(prevSmallest);
 
@@ -149,7 +149,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      * Extract children of the node, put them to the roots and merge all mergable nodes
      * @param removedNode root node to be removed
      */
-    private void extractAndMerge(Node removedNode) {
+    private void extractChildrenAndMergeRoots(Node removedNode) {
         for (Node child: removedNode.children.keySet()) {
             int degree = child.getDegree();
             child.parent = null;

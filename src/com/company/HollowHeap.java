@@ -6,7 +6,7 @@ public class HollowHeap<A extends Comparable<A>> implements Heap<A> {
 
     HollowHeapNode root;
 
-    private Index index = new Index<A, HollowHeapNode>();
+    private Index<A, HollowHeapNode> index = new Index<>();
 
     /**
      * Check if heap is empty
