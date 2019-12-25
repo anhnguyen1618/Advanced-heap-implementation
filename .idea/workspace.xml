@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdaecbe3-175e-41ae-9254-365e0f204def" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/HollowHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/HollowHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FibonacciHeapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FibonacciHeapTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,15 +27,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.scala">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2871">
-              <caret line="126" column="5" selection-start-line="99" selection-start-column="4" selection-end-line="126" selection-end-column="5" />
+            <state relative-caret-position="2059">
+              <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#merge#0;class#FibonacciHeapTest#0" />
@@ -72,8 +66,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1457">
-              <caret line="252" column="17" selection-start-line="252" selection-start-column="17" selection-end-line="252" selection-end-column="17" />
+            <state relative-caret-position="319">
+              <caret line="257" column="9" selection-start-line="257" selection-start-column="9" selection-end-line="257" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeapSmallTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -99,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/HollowHeap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3828">
-              <caret line="156" column="13" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="13" />
+            <state relative-caret-position="189">
+              <caret line="255" selection-start-line="255" selection-end-line="255" />
               <folding>
                 <element signature="method#peekMin#0;class#HollowHeap#0" />
               </folding>
@@ -132,8 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>firstChild</find>
-      <find>prepend</find>
       <find>.firstChild</find>
       <find>.firstChild =</find>
       <find>this.firstChild =</find>
@@ -153,15 +154,17 @@
       <find>pull</find>
       <find>pullToRoot</find>
       <find>meld</find>
-      <find>smallest</find>
       <find>linkWith</find>
       <find>this.fibHeap</find>
       <find>FibonacciHeap</find>
       <find>getRoot</find>
-      <find>this.</find>
       <find>delete</find>
       <find>detach</find>
       <find>detachF</find>
+      <find>smallest</find>
+      <find>this.</find>
+      <find>compress</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>V</replace>
@@ -179,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/com/company/Node.java" />
         <option value="$PROJECT_DIR$/src/com/company/Index.java" />
         <option value="$PROJECT_DIR$/src/com/company/Heap.java" />
-        <option value="$PROJECT_DIR$/test/FibonacciHeapTest.java" />
         <option value="$PROJECT_DIR$/test/HollowHeapTest.java" />
         <option value="$PROJECT_DIR$/src/com/company/FibonacciHeapSmallTest.java" />
         <option value="$PROJECT_DIR$/src/com/company/FibbonacciHeapLargeRandomTest.java" />
@@ -188,6 +190,7 @@
         <option value="$PROJECT_DIR$/test.sh" />
         <option value="$PROJECT_DIR$/src/com/company/HollowHeapSmallTest.java" />
         <option value="$PROJECT_DIR$/src/com/company/HollowHeap.java" />
+        <option value="$PROJECT_DIR$/test/FibonacciHeapTest.java" />
         <option value="$PROJECT_DIR$/src/com/company/FibonacciHeap.java" />
       </list>
     </option>
@@ -225,6 +228,11 @@
             </path>
             <path>
               <item name="PAT-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAT-project" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAT-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
             <path>
@@ -246,7 +254,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577280356374" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577283689745" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -260,7 +268,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in PAT-project">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="PAT-project" />
@@ -312,9 +320,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in PAT-project" />
         <item itemvalue="JUnit.FibonacciHeapTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.FibonacciHeapTest.testDecreaseKey" />
         <item itemvalue="JUnit.HollowHeapTest" />
       </list>
@@ -339,29 +347,11 @@
       <workItem from="1577008735727" duration="17191000" />
       <workItem from="1577087006776" duration="25572000" />
       <workItem from="1577178732205" duration="12333000" />
-      <workItem from="1577259414154" duration="10124000" />
+      <workItem from="1577259414154" duration="13166000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FibonacciHeapTest_testDecreaseKey - 2019.12.24 at 15h 30m 31s.xml">
-      <configuration name="FibonacciHeapTest.testDecreaseKey" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FibonacciHeapTest_testDecreaseKey - 2019.12.24 at 15h 31m 16s.xml">
-      <configuration name="FibonacciHeapTest.testDecreaseKey" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FibonacciHeapTest_testDecreaseKey - 2019.12.24 at 15h 34m 45s.xml">
-      <configuration name="FibonacciHeapTest.testDecreaseKey" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FibonacciHeapTest_testDecreaseKey - 2019.12.24 at 15h 37m 31s.xml">
-      <configuration name="FibonacciHeapTest.testDecreaseKey" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FibonacciHeapTest_testDecreaseKey - 2019.12.24 at 15h 38m 32s.xml">
-      <configuration name="FibonacciHeapTest.testDecreaseKey" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_PAT-project - 2019.12.24 at 16h 38m 17s.xml">
-      <configuration name="All in PAT-project" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_PAT-project - 2019.12.24 at 16h 40m 48s.xml">
       <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
@@ -374,9 +364,27 @@
     <history-entry file="All_in_PAT-project - 2019.12.24 at 18h 54m 42s.xml">
       <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 02s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 15s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 21s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 25s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 30s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 33s.xml">
+      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167737000" />
+    <option name="totallyTimeSpent" value="170779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
@@ -391,7 +399,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.5015674" side_tool="true" weight="0.26574174" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32945737" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21317829" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29263565" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.35852712" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -427,21 +435,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>213</line>
-          <properties />
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>288</line>
+          <line>260</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/HollowHeap.java</url>
-          <line>255</line>
+          <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
+          <line>183</line>
           <properties />
-          <option name="timeStamp" value="47" />
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
+          <line>167</line>
+          <properties />
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
+          <line>193</line>
+          <properties />
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -502,17 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeapSmallTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding>
-            <element signature="method#testHollowHeap#0;class#FibonacciHeapSmallTest#0" />
-            <element signature="method#testHollowHeap2#0;class#FibonacciHeapSmallTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Index.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -531,17 +534,6 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.scala">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2871">
-          <caret line="126" column="5" selection-start-line="99" selection-start-column="4" selection-end-line="126" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#merge#0;class#FibonacciHeapTest#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FibbonacciHeapLargeRandomTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -587,16 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/HollowHeap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3828">
-          <caret line="156" column="13" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="13" />
-          <folding>
-            <element signature="method#peekMin#0;class#HollowHeap#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Heap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -604,10 +586,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/HollowHeap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="255" selection-start-line="255" selection-end-line="255" />
+          <folding>
+            <element signature="method#peekMin#0;class#HollowHeap#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeapSmallTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/FibonacciHeapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2059">
+          <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#merge#0;class#FibonacciHeapTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1457">
-          <caret line="252" column="17" selection-start-line="252" selection-start-column="17" selection-end-line="252" selection-end-column="17" />
+        <state relative-caret-position="319">
+          <caret line="257" column="9" selection-start-line="257" selection-start-column="9" selection-end-line="257" selection-end-column="9" />
         </state>
       </provider>
     </entry>

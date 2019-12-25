@@ -69,7 +69,7 @@ public class FibonacciHeapTest {
         int upperBound = 100000;
         int numDecreaseKey = 40000;
 
-        int[] array = random.ints(size, 20,numDecreaseKey).toArray();
+        int[] array = random.ints(size, 0,numDecreaseKey).toArray();
         for (int e: array) {
             this.fibHeap.insert(e);
         }

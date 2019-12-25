@@ -3,7 +3,7 @@ package com.company;
 import java.util.*;
 
 public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
-    private Map<Integer, Map<Node, Node>> roots = new HashMap<>();
+    private Map<Node, Node> roots = new HashMap<>();
 
     private Index<A, Node> index = new Index<>();
 
@@ -135,11 +135,9 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      * @param node node to be pulled
      */
     private void pullToRoot(Node node) {
-        int degree = node.getDegree();
         this.removeConnectionWithParent(node);
 
-        roots.putIfAbsent(degree, new HashMap<>());
-        roots.get(degree).put(node, node);
+        roots.put(node, node);
         node.lostChildrenCount = 0;
 
         smallest = smallest != null && smallest.lessThan(node) ? smallest : node;
@@ -151,16 +149,14 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      */
     private void extractChildrenAndMergeRoots(Node removedNode) {
         for (Node child: removedNode.children.keySet()) {
-            int degree = child.getDegree();
             child.parent = null;
-            roots.putIfAbsent(degree, new HashMap<>());
-            roots.get(degree).put(child, child);
+            roots.put(child, child);
         }
 
-        roots.get(removedNode.getDegree()).remove(removedNode);
+        roots.remove(removedNode);
 
         // merge all roots with the same rank until all root nodes has different degree rank
-        while(compress()) {}
+        compressRoots();
 
         this.updateSmallest();
     }
@@ -170,65 +166,43 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      */
     private void updateSmallest() {
         Node minNode = null;
-        Set<Integer> keys = this.roots.keySet();
-        List<Integer> emptyKeys = new ArrayList<>();
-        for (int key: keys) {
-
-            Collection<Node> roots = this.roots.get(key).values();
-
-            if (roots.size() == 0) {
-                emptyKeys.add(key);
-                continue;
+        for (Node node: this.roots.values()) {
+            if (minNode == null || node.lessThan(minNode)) {
+                minNode = node;
             }
-
-            for (Node node: roots) {
-                if (minNode == null || node.lessThan(minNode)) {
-                    minNode = node;
-                }
-            }
-
         }
 
-        // remove all rank entries that are empty
-        for (int key: emptyKeys) {
-            this.roots.remove(key);
-        }
+
 
         this.smallest = minNode;
     }
 
     /**
-     * Merge all root nodes with the same degree in the hashmap
-     * @return status if the merge process should continue
+     * Merge all root nodes with the same degree using hashMap
      */
-    private boolean compress() {
-        for (int degree: this.roots.keySet()) {
-            Collection<Node> nodes = this.roots.get(degree).values();
+    private void compressRoots() {
+        Map<Integer, Node> degreeMapping = new HashMap<>();
 
-            if (nodes.size() > 1) {
-                Iterator<Node> iter = nodes.iterator();
-                Node first = iter.next();
-                Node second = iter.next();
+        for (Node rootNode: this.roots.values()) {
 
-                if (first.getDegree() != second.getDegree()) {
-                    throw new Error("Degree does not match"+ first.getDegree() + " " + second.getDegree());
-                }
+            Node currentNode = rootNode;
 
-                Node newRoot = first.merge(second);
-
-                int newDegreeAfterMerging = degree +1;
-                // increase rank of the merged node
-                this.roots.putIfAbsent(newDegreeAfterMerging, new HashMap<>());
-                this.roots.get(newDegreeAfterMerging).put(newRoot, newRoot);
-
-                this.roots.get(degree).remove(first);
-                this.roots.get(degree).remove(second);
-                return true;
+            while(degreeMapping.get(currentNode.getDegree()) != null) {
+                int degree = currentNode.getDegree();
+                Node sameDegreeNode = degreeMapping.get(degree);
+                Node newNode = currentNode.merge(sameDegreeNode);
+                degreeMapping.remove(degree);
+                currentNode = newNode;
             }
 
+            degreeMapping.put(currentNode.getDegree(), currentNode);
         }
 
-        return false;
+        this.roots = new HashMap<>();
+
+        for (Node node: degreeMapping.values()) {
+            this.roots.put(node, node);
+        }
     }
 
     /**
@@ -237,7 +211,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      * @return Node with the searched key
      */
     private Node find(A oldKey) {
-        Node found = (Node) this.index.get(oldKey);
+        Node found = this.index.get(oldKey);
 
         if (found == null) {
             throw new Error("key not found");
@@ -283,21 +257,11 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
             return;
         }
 
-        int oldDegree = parent.getDegree();
-
         if (parent.children.get(removedNode) == null) {
             throw new Error("Child not found");
         }
 
         parent.children.remove(removedNode);
-
-        if (parent.isRoot()) {
-            int newDegree = parent.getDegree();
-            this.roots.putIfAbsent(newDegree, new HashMap<>());
-            Map<Node, Node> newDegreeGroup = this.roots.get(newDegree);
-            newDegreeGroup.put(parent, parent);
-            this.roots.get(oldDegree).remove(parent);
-        }
 
     }
 
@@ -307,14 +271,10 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      * @return merged heap
      */
     private FibonacciHeap<A> merge(FibonacciHeap<A> heap2) {
-        Map<Integer, Map<Node, Node>> otherRoot = heap2.roots;
+        Map<Node, Node> otherRoot = heap2.roots;
 
-        for (int degree: otherRoot.keySet()) {
-            this.roots.putIfAbsent(degree, new HashMap<>());
-            Map<Node, Node> degreeGroup = this.roots.get(degree);
-            for (Node entry: otherRoot.get(degree).keySet()) {
-                degreeGroup.put(entry, entry);
-            }
+        for (Node entry: otherRoot.values()) {
+            this.roots.put(entry, entry);
         }
 
         this.index.mergeIndex(heap2.index);
