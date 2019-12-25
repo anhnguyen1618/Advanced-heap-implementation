@@ -3,7 +3,7 @@ package com.company;
 import java.util.*;
 
 public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
-    private Map<Node, Node> roots = new HashMap<>();
+    private Set<Node> roots = new HashSet<>();
 
     private Index<A, Node> index = new Index<>();
 
@@ -137,7 +137,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
     private void pullToRoot(Node node) {
         this.removeConnectionWithParent(node);
 
-        roots.put(node, node);
+        roots.add(node);
         node.lostChildrenCount = 0;
 
         smallest = smallest != null && smallest.lessThan(node) ? smallest : node;
@@ -150,7 +150,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
     private void extractChildrenAndMergeRoots(Node removedNode) {
         for (Node child: removedNode.children.keySet()) {
             child.parent = null;
-            roots.put(child, child);
+            roots.add(child);
         }
 
         roots.remove(removedNode);
@@ -166,7 +166,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      */
     private void updateSmallest() {
         Node minNode = null;
-        for (Node node: this.roots.values()) {
+        for (Node node: this.roots) {
             if (minNode == null || node.lessThan(minNode)) {
                 minNode = node;
             }
@@ -183,7 +183,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
     private void compressRoots() {
         Map<Integer, Node> degreeMapping = new HashMap<>();
 
-        for (Node rootNode: this.roots.values()) {
+        for (Node rootNode: this.roots) {
 
             Node currentNode = rootNode;
 
@@ -198,11 +198,9 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
             degreeMapping.put(currentNode.getDegree(), currentNode);
         }
 
-        this.roots = new HashMap<>();
+        this.roots = new HashSet<>();
 
-        for (Node node: degreeMapping.values()) {
-            this.roots.put(node, node);
-        }
+        this.roots.addAll(degreeMapping.values());
     }
 
     /**
@@ -271,11 +269,9 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      * @return merged heap
      */
     private FibonacciHeap<A> merge(FibonacciHeap<A> heap2) {
-        Map<Node, Node> otherRoot = heap2.roots;
-
-        for (Node entry: otherRoot.values()) {
-            this.roots.put(entry, entry);
-        }
+        Set<Node> otherRoot = heap2.roots;
+        
+        this.roots.addAll(otherRoot);
 
         this.index.mergeIndex(heap2.index);
 
