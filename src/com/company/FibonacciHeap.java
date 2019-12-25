@@ -39,11 +39,6 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
 
         Node prevSmallest = smallest;
 
-        // Reset lostChildrenCount of all children of the smallest element since they are now put to the root
-        for (Node child: this.smallest.children) {
-            child.lostChildrenCount = 0;
-        }
-
         this.extractChildrenAndMergeRoots(smallest);
 
         this.index.removeIndex(prevSmallest);
@@ -149,6 +144,8 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      */
     private void extractChildrenAndMergeRoots(Node removedNode) {
         for (Node child: removedNode.children) {
+            // Reset lostChildrenCount of all children of the smallest element since they are now put to the root
+            child.lostChildrenCount = 0;
             child.parent = null;
             roots.add(child);
         }

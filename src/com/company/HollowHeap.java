@@ -292,6 +292,11 @@ public class HollowHeap<A extends Comparable<A>> implements Heap<A> {
 
         public void prependChild(HollowHeapNode newChild) {
 
+            if (this.firstChild == null) {
+                this.firstChild = newChild;
+                return;
+            }
+
             HollowHeapNode curNode = newChild;
             while (curNode.nextSibling != null) {
                 curNode = curNode.nextSibling;
