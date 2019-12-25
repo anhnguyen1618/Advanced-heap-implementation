@@ -40,7 +40,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         Node prevSmallest = smallest;
 
         // Reset lostChildrenCount of all children of the smallest element since they are now put to the root
-        for (Node child: this.smallest.children.keySet()) {
+        for (Node child: this.smallest.children) {
             child.lostChildrenCount = 0;
         }
 
@@ -148,7 +148,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      * @param removedNode root node to be removed
      */
     private void extractChildrenAndMergeRoots(Node removedNode) {
-        for (Node child: removedNode.children.keySet()) {
+        for (Node child: removedNode.children) {
             child.parent = null;
             roots.add(child);
         }
@@ -156,31 +156,13 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         roots.remove(removedNode);
 
         // merge all roots with the same rank until all root nodes has different degree rank
-        compressRoots();
-
-        this.updateSmallest();
-    }
-
-    /**
-     * Iterate through roots and select the smallest node
-     */
-    private void updateSmallest() {
-        Node minNode = null;
-        for (Node node: this.roots) {
-            if (minNode == null || node.lessThan(minNode)) {
-                minNode = node;
-            }
-        }
-
-
-
-        this.smallest = minNode;
+        compressRootsAndUpdateSmallest();
     }
 
     /**
      * Merge all root nodes with the same degree using hashMap
      */
-    private void compressRoots() {
+    private void compressRootsAndUpdateSmallest() {
         Map<Integer, Node> degreeMapping = new HashMap<>();
 
         for (Node rootNode: this.roots) {
@@ -200,7 +182,17 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
 
         this.roots = new HashSet<>();
 
-        this.roots.addAll(degreeMapping.values());
+        // update smallest element
+        Node minNode = null;
+        for (Node root: degreeMapping.values()) {
+            this.roots.add(root);
+
+            if (minNode == null || root.lessThan(minNode)) {
+                minNode = root;
+            }
+        }
+
+        this.smallest = minNode;
     }
 
     /**
@@ -255,12 +247,11 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
             return;
         }
 
-        if (parent.children.get(removedNode) == null) {
+        boolean isRemoved = parent.children.remove(removedNode);
+
+        if (!isRemoved) {
             throw new Error("Child not found");
         }
-
-        parent.children.remove(removedNode);
-
     }
 
     /**
@@ -270,7 +261,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
      */
     private FibonacciHeap<A> merge(FibonacciHeap<A> heap2) {
         Set<Node> otherRoot = heap2.roots;
-        
+
         this.roots.addAll(otherRoot);
 
         this.index.mergeIndex(heap2.index);
@@ -290,7 +281,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         A value;
         Node parent;
         int lostChildrenCount = 0;
-        Map<Node, Node> children = new HashMap<>();
+        Set<Node> children = new HashSet<>();
 
         public Node(A value, Node parent) {
             this.value = value;
@@ -317,12 +308,12 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         public Node merge(Node other) {
 
             if (this.lessThan(other)) {
-                this.children.put(other, other);
+                this.children.add(other);
                 other.parent = this;
                 return this;
             }
 
-            other.children.put(this, this);
+            other.children.add(this);
             this.parent = other;
             return other;
         }
@@ -338,7 +329,7 @@ public class FibonacciHeap<A extends Comparable<A>> implements Heap<A> {
         @Override
         public String toString() {
             StringBuilder result = new StringBuilder(value + "(");
-            for (Node child: this.children.keySet()) {
+            for (Node child: this.children) {
                 result.append(child.toString()).append(", ");
             }
             result.append(")");

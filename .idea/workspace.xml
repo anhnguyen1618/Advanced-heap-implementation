@@ -65,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7830">
-              <caret line="272" column="8" selection-start-line="272" selection-start-column="8" selection-end-line="272" selection-end-column="8" />
+            <state relative-caret-position="-348">
+              <caret line="164" column="47" selection-start-line="164" selection-start-column="17" selection-end-line="164" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -134,8 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.firstChild</find>
-      <find>.firstChild =</find>
       <find>this.firstChild =</find>
       <find>firstChild =</find>
       <find>second</find>
@@ -164,6 +162,8 @@
       <find>this.</find>
       <find>compress</find>
       <find>print</find>
+      <find>children</find>
+      <find>updateSm</find>
     </findStrings>
     <replaceStrings>
       <replace>V</replace>
@@ -253,7 +253,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577284546351" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577287144009" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -267,7 +267,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in PAT-project">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="PAT-project" />
@@ -319,9 +319,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in PAT-project" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.FibonacciHeapTest" />
-        <item itemvalue="JUnit.All in PAT-project" />
         <item itemvalue="JUnit.FibonacciHeapTest.testDecreaseKey" />
         <item itemvalue="JUnit.HollowHeapTest" />
       </list>
@@ -346,26 +346,11 @@
       <workItem from="1577008735727" duration="17191000" />
       <workItem from="1577087006776" duration="25572000" />
       <workItem from="1577178732205" duration="12333000" />
-      <workItem from="1577259414154" duration="13885000" />
+      <workItem from="1577259414154" duration="16039000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 21s.xml">
-      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 25s.xml">
-      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 30s.xml">
-      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 16m 33s.xml">
-      <configuration name="FibonacciHeapTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_PAT-project - 2019.12.25 at 16h 21m 18s.xml">
-      <configuration name="All in PAT-project" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_PAT-project - 2019.12.25 at 16h 21m 26s.xml">
       <configuration name="All in PAT-project" configurationId="JUnit" />
     </history-entry>
@@ -381,9 +366,24 @@
     <history-entry file="FibonacciHeapTest - 2019.12.25 at 16h 31m 54s.xml">
       <configuration name="FibonacciHeapTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_PAT-project - 2019.12.25 at 16h 46m 15s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_PAT-project - 2019.12.25 at 16h 46m 29s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_PAT-project - 2019.12.25 at 16h 46m 38s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_PAT-project - 2019.12.25 at 17h 06m 52s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_PAT-project - 2019.12.25 at 17h 13m 27s.xml">
+      <configuration name="All in PAT-project" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171498000" />
+    <option name="totallyTimeSpent" value="173652000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
@@ -434,25 +434,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>258</line>
-          <properties />
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>183</line>
+          <line>165</line>
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>167</line>
-          <properties />
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java</url>
-          <line>193</line>
+          <line>175</line>
           <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
@@ -615,8 +603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FibonacciHeap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7830">
-          <caret line="272" column="8" selection-start-line="272" selection-start-column="8" selection-end-line="272" selection-end-column="8" />
+        <state relative-caret-position="-348">
+          <caret line="164" column="47" selection-start-line="164" selection-start-column="17" selection-end-line="164" selection-end-column="47" />
         </state>
       </provider>
     </entry>
